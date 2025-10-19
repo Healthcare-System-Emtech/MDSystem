@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Records - TIP MDS EMR</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/tables.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="dashboard active">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="sidebar-logo-text">
+                        <h2>TIP MDS EMR</h2>
+                        <p>Student Portal</p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-registration.html">
+                        <i class="fas fa-file-medical"></i>
+                        <span>New Student Form</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-update.html">
+                        <i class="fas fa-edit"></i>
+                        <span>Update Information</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-appointments.html">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="student-records.html">
+                        <i class="fas fa-folder-open"></i>
+                        <span>My Records</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">My Records</h1>
+                <div class="top-bar-right">
+                    <span class="date-display">Saturday, October 18, 2025</span>
+                    <button class="logout-btn" onclick="handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <h3 style="margin-bottom: 20px;">My Medical & Dental Records</h3>
+                
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(event, 'approved-records')">Approved Records</button>
+                    <button class="tab" onclick="switchTab(event, 'pending-records')">Pending Updates</button>
+                </div>
+
+                <div id="approved-records" class="tab-content active">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Diagnosis/Procedure</th>
+                                <th>Doctor</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oct 10, 2025</td>
+                                <td>Medical</td>
+                                <td>Annual Check-up</td>
+                                <td>Dr. Santos</td>
+                                <td><span class="status-badge status-approved">Approved</span></td>
+                                <td><button class="action-btn btn-view">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>Sep 28, 2025</td>
+                                <td>Dental</td>
+                                <td>Teeth Cleaning</td>
+                                <td>Dr. Reyes</td>
+                                <td><span class="status-badge status-approved">Approved</span></td>
+                                <td><button class="action-btn btn-view">View Details</button></td>
+                            </tr>
+                            <tr>
+                                <td>Aug 15, 2025</td>
+                                <td>Medical</td>
+                                <td>Medical Clearance</td>
+                                <td>Dr. Santos</td>
+                                <td><span class="status-badge status-approved">Approved</span></td>
+                                <td><button class="action-btn btn-view">View Details</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="pending-records" class="tab-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Submitted Date</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oct 18, 2025</td>
+                                <td>Update Form</td>
+                                <td>Address and contact update</td>
+                                <td><span class="status-badge status-pending">Pending Review</span></td>
+                                <td><button class="action-btn btn-view">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>Oct 16, 2025</td>
+                                <td>Medical Update</td>
+                                <td>New allergy information</td>
+                                <td><span class="status-badge status-pending">Pending Review</span></td>
+                                <td><button class="action-btn btn-view">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script>
+        protectPage();
+    </script>
+</body>
+</html>
