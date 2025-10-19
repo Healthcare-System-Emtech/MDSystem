@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard - TIP MDS EMR</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="dashboard active">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="sidebar-logo-text">
+                        <h2>TIP MDS EMR</h2>
+                        <p>Healthcare Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="doctor-dashboard.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctor-search.html">
+                        <i class="fas fa-search"></i>
+                        <span>Student Records</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctor-pending.html">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Requests</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctor-appointments.html">
+                        <i class="fas fa-calendar"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctor-templates.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Templates</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctor-analytics.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="doctor-settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">Doctor/Admin Portal</h1>
+                <div class="top-bar-right">
+                    <span class="date-display">Saturday, October 18, 2025</span>
+                    <button class="logout-btn" onclick="handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+
+            <div class="welcome-section">
+                <h2>Welcome to TIP MDS EMR</h2>
+                <p>Your comprehensive Electronic Medical Records system. Manage patient information, appointments, and medical data with ease and security.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Patients</h3>
+                        <div class="stat-number">1,284</div>
+                    </div>
+                    <div class="stat-icon blue">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Today's Appointments</h3>
+                        <div class="stat-number">32</div>
+                    </div>
+                    <div class="stat-icon green">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Pending Requests</h3>
+                        <div class="stat-number">18</div>
+                    </div>
+                    <div class="stat-icon orange">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Active Cases</h3>
+                        <div class="stat-number">156</div>
+                    </div>
+                    <div class="stat-icon purple">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modules-section">
+                <h3>System Modules</h3>
+                <div class="modules-grid">
+                    <div class="module-card blue" onclick="navigateTo('doctor-search.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h4>Patient Registration</h4>
+                        <p>Register new patients and manage personal details</p>
+                    </div>
+
+                    <div class="module-card green" onclick="navigateTo('doctor-search.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-notes-medical"></i>
+                        </div>
+                        <h4>Medical History</h4>
+                        <p>View and update patient medical records</p>
+                    </div>
+
+                    <div class="module-card cyan" onclick="navigateTo('doctor-appointments.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>Appointment Scheduling</h4>
+                        <p>Schedule and manage patient appointments</p>
+                    </div>
+
+                    <div class="module-card yellow" onclick="navigateTo('doctor-templates.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>Laboratory Results</h4>
+                        <p>Manage and track laboratory test results</p>
+                    </div>
+
+                    <div class="module-card pink" onclick="navigateTo('doctor-templates.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h4>Doctor Notes</h4>
+                        <p>Create and manage clinical notes and observations</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="js/doctor-dashboard.js"></script>
+    <script>
+        protectPage();
+    </script>
+</body>
+</html>

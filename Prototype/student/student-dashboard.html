@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - TIP MDS EMR</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="dashboard active">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="sidebar-logo-text">
+                        <h2>TIP MDS EMR</h2>
+                        <p>Student Portal</p>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a class="nav-link active" href="student-dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-registration.html">
+                        <i class="fas fa-file-medical"></i>
+                        <span>New Student Form</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-update.html">
+                        <i class="fas fa-edit"></i>
+                        <span>Update Information</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-appointments.html">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointments</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-records.html">
+                        <i class="fas fa-folder-open"></i>
+                        <span>My Records</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="top-bar">
+                <h1 class="page-title">Student Portal</h1>
+                <div class="top-bar-right">
+                    <span class="date-display">Saturday, October 18, 2025</span>
+                    <button class="logout-btn" onclick="handleLogout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+
+            <div class="welcome-section">
+                <h2>Welcome to TIP Medical-Dental Services EMR</h2>
+                <p>Your comprehensive Electronic Medical Records system. Manage your health information, appointments, and medical data with ease and security.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Total Records</h3>
+                        <div class="stat-number">12</div>
+                    </div>
+                    <div class="stat-icon blue">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Appointments</h3>
+                        <div class="stat-number">3</div>
+                    </div>
+                    <div class="stat-icon green">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Pending Requests</h3>
+                        <div class="stat-number">2</div>
+                    </div>
+                    <div class="stat-icon orange">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-info">
+                        <h3>Approved Records</h3>
+                        <div class="stat-number">10</div>
+                    </div>
+                    <div class="stat-icon purple">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modules-section">
+                <h3>Quick Actions</h3>
+                <div class="modules-grid">
+                    <div class="module-card blue" onclick="navigateTo('student-registration.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h4>New Student Registration</h4>
+                        <p>Register as a new student and submit initial medical and dental information</p>
+                    </div>
+
+                    <div class="module-card green" onclick="navigateTo('student-update.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>Update Information</h4>
+                        <p>Update your personal, medical, or dental information</p>
+                    </div>
+
+                    <div class="module-card cyan" onclick="navigateTo('student-appointments.html')">
+                        <div class="module-icon">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <h4>Book Appointment</h4>
+                        <p>Schedule medical or dental appointments with our staff</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="js/student-dashboard.js"></script>
+    <script>
+        // Protect this page
+        protectPage();
+    </script>
+</body>
+</html>
