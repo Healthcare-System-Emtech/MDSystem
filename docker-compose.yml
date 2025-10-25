@@ -1,31 +1,27 @@
+version: '3.9'
+
 services:
   web:
-    build: .
-    container_name: django_app
-    command: >
-      sh -c "
-        python manage.py migrate &&
-        python manage.py collectstatic --noinput &&
-        python manage.py runserver 0.0.0.0:8000
-      "
+    build:
+      context: ./Server
+      dockerfile: Dockerfile
+    container_name: node_app
     volumes:
-      - .:/app
-      - static_volume:/app/static
-      - media_volume:/app/media
+      - ./Server:/app
+
     ports:
-      - "8000:8000"
+      - "3000:3000"
+    env_file:
+      - .env
     environment:
-      DJANGO_SETTINGS_MODULE: mdsystem.settings
       POSTGRES_DB: mdsdb
       POSTGRES_USER: mdsuser
-      POSTGRES_PASSWORD: mdspass
+      POSTGRES_PASSWORD: mdspasss
       POSTGRES_HOST: db
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
-      SITE_ID: 1
     depends_on:
       - db
-      - mosquitto
       - libreoffice
     restart: unless-stopped
 
@@ -42,16 +38,6 @@ services:
       - "5432:5432"
     restart: unless-stopped
 
-  mosquitto:
-    image: eclipse-mosquitto:2
-    container_name: mqtt_broker
-    ports:
-      - "1883:1883"
-      - "9001:9001"
-    volumes:
-      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
-    restart: unless-stopped
-
   libreoffice:
     image: ghcr.io/linuxserver/libreoffice:latest
     container_name: libreoffice
@@ -64,7 +50,19 @@ services:
       - ./shared:/data
     restart: unless-stopped
 
+  client:
+    build:
+      context: ./Client
+    container_name: react_app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./Client:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - web
+    restart: unless-stopped
+
 volumes:
   postgres_data:
-  static_volume:
-  media_volume:
